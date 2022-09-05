@@ -1,0 +1,108 @@
+﻿@model CotacaoModel
+@{
+    ViewData["Title"] = "Cadastrar Cotação";
+}
+
+<div class="text-center">
+
+    <h1 class="display-4">
+        Cadastrar Cotação
+    </h1>
+</div>
+<form asp-controller="Cotacao" asp-action="Adicionar" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputCNPJComprador">CNPJ do Comprador</label>
+            <input type="text" asp-for="CNPJComprador" class="form-control" id="inputCNPJComprador" placeholder="CNPJ do Comprador">
+            @Html.ValidationMessageFor(x => x.CNPJComprador)
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputCNPJFornecedor">CNPJ do Fornecedor</label>
+            <input type="text" asp-for="CNPJFornecedor" class="form-control" id="inputCNPJFornecedor" placeholder="CNPJ do Fornecedor">
+            @Html.ValidationMessageFor(x => x.CNPJFornecedor)
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputNumeroCotacao">Numero da Cotacao</label>
+            <input type="text" asp-for="NumeroCotacao" class="form-control" id="inputNumeroCotacao" placeholder="Numero da Cotacao">
+            @Html.ValidationMessageFor(x => x.NumeroCotacao)
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputDataCotacao">Data da Cotacao</label>
+        <input type="datetime" asp-for="DataCotacao" class="form-control" id="inputDataCotacao" placeholder="">
+        @Html.ValidationMessageFor(x => x.DataCotacao)
+    </div>
+    <div class="form-group">
+        <label for="inputDataEntregaCotacao">Data da entrega Cotacao</label>
+        <input type="datetime" asp-for="DataEntregaCotacao" class="form-control" id="inputDataEntregaCotacao" placeholder="">
+        @Html.ValidationMessageFor(x => x.DataEntregaCotacao)
+    </div>
+    <div class="form-group">
+        <label for="inputCEP">CEP</label>
+        <input type="text" asp-for="CEP" class="form-control" id="inputCEP">
+        @Html.ValidationMessageFor(x => x.CEP)
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputCity">Logradouro</label>
+            <input type="text" asp-for="Logradouro" class="form-control" id="inputCity">
+        </div>
+        <div class="form-group">
+            <label for="inputAddress2">Complemento</label>
+            <input type="text" asp-for="Complemento" class="form-control" id="inputAddress2" placeholder="Apartamento, hotel, casa, etc.">
+        </div>
+        <div class="form-group">
+            <label for="inputBairro">Bairro</label>
+            <input type="text" asp-for="Bairro" class="form-control" id="inputBairro" placeholder="">
+        </div>
+        <div class="form-row align-items-center">
+            <label for="inputEstado">UF</label>
+            <select id="inputEstado" type="text" asp-for="UF" class="form-control">
+                <option selected>UF...</option>
+                <option value="AC-Acre"> AC-Acre </option>
+                <option value="AL-Alagoas"> AL-Alagoas </option>
+                <option value="AP-Amapá"> AP-Amapá </option>
+                <option value="AM-Amazonas"> AM-Amazonas </option>
+                <option value="5"> BA-Bahia </option>
+                <option value="6"> CE-Ceara </option>
+                <option value="7"> DF-Distrito Federal </option>
+                <option value="8"> ES-Espírito Santo </option>
+                <option value="9"> GO-Goiás </option>
+                <option value="10"> MA-Maranhão </option>
+                <option value="11"> MT-Mato Grosso </option>
+                <option value="12"> MS-Mato Grosso do Sul </option>
+                <option value="13"> MG-Minas Gerais </option>
+                <option value="14"> PA-Pará </option>
+                <option value="15"> PB-Paraíba </option>
+                <option value="16"> PR-Paraná </option>
+                <option value="17"> PE-Pernambuco </option>
+                <option value="18"> PI-Piauí </option>
+                <option value="19"> RJ-Rio de Janeiro </option>
+                <option value="20"> RN-Rio Grande do Norte </option>
+                <option value="21"> RS-Rio Grande do Sul </option>
+                <option value="22"> RO-Rondônia </option>
+                <option value="23"> RR-Roraima </option>
+                <option value="24"> SC-Santa Catarina </option>
+                <option value="25"> SP-São Paulo </option>
+                <option value="26"> SE-Sergipe </option>
+                <option value="27"> TO-Tocantins </option>
+            </select>
+            <div class="form-group">
+                <label for="inputBairro">Observação</label>
+                <input type="text" asp-for="Observacao" class="form-control" id="inputObservacao" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="inputBairro">Cotacão dos Itens</label>
+                <input type="text" asp-for="CotacaoItens" class="form-control" id="inputCotacaoItens" placeholder="Cotacão dos Itens">
+            </div>
+        </div>
+        
+    </div>
+
+
+    <div class="btn-group" role="group">
+        <button type="submit" class="btn btn-light">Adicionar</button>
+        <button class="btn btn-secondary" asp-controller="cotacao" asp-action="Index" role="button">Voltar</button>
+    </div>
+
+</form>

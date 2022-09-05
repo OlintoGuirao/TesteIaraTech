@@ -1,0 +1,54 @@
+﻿@model List<CotacaoModel>
+@{
+    ViewData["Title"] = "Cotação";
+}
+
+<div class="text-center">
+    <div class="d-grid gap-2 d-md-flex justify-content-lg-start">
+        <a class ="btn btn-primary" role="button" asp-controller="Cotacao" asp-action="Adicionar">Adidionar uma nova Cotação</a>
+        </div>
+    <h1 class="display-4"> Listagem de Cotação </h1>
+
+    <table class="table" id="tablecotacao">
+        <thead>
+            <tr>
+               
+                <th scope="col">CNPJ do Comprador</th>
+                <th scope="col">CNPJ do Fornecedor</th>
+                <th scope="col">Numero da Cotacao</th>
+                <th scope="col">Data da Cotacao</th>
+                <th scope="col">Data da Entrega Cotacao</th>
+                <th scope="col">CEP</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (CotacaoModel cotacao in Model)
+                {
+                    <tr>
+                       
+                        <td  scope="row">@cotacao.CNPJComprador</td>
+                        <td>@cotacao.CNPJFornecedor</td>
+                        <td>@cotacao.NumeroCotacao</td>
+                        <td>@cotacao.DataCotacao</td>
+                        <td>@cotacao.DataEntregaCotacao</td>
+                        <td>@cotacao.CEP</td>
+                        <td>@cotacao.CotacaoItens</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" class="btn btn-primary" asp-route-id="@cotacao.Id"  asp-controller="Cotacao" asp-action="Editar">Editar</a>
+                                <a role="button" class="btn btn-primary" asp-route-id="@cotacao.Id"  asp-controller="Cotacao" asp-action="Remover">Remover</a>
+                            </div>
+                        </td>
+
+                    </tr>
+
+                }
+            }
+
+        </tbody>
+
+    </table>
+</div>
